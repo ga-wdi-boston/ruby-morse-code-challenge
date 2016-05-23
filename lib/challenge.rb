@@ -15,10 +15,17 @@ MORSE_CODE = {
 }.freeze
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
 
-def decode_morse(morse_code)
-  # Your code here
+def decode_morse(str)
+  result = ''
+  str.split(' ').each do |x|
+    if MORSE_CODE.key?(x)
+      result << MORSE_CODE[x]
+    else
+      result << '*'
+    end
 end
 
-def parse_bits(bits)
-  # Your code here
-end
+
+# def parse_bits(bits)
+#   # Your code here
+# end
