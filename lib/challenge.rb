@@ -14,9 +14,19 @@ MORSE_CODE = {
   '...---...' => 'SOS'
 }.freeze
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
+# If an invalid letter code is passed in, decode_morse should replace that invalid
+# letter with an asterisk ('*'). Letters are separated by space, while words are
+# separated by a group of three spaces. Remove any leading or trailing whitespace.
 
 def decode_morse(morse_code)
-  # Your code here
+  wordArray = morse_code.split('   ')
+  wordArray.map! { |w| w.split(' ').map! { |c|
+    if MORSE_CODE[c]
+      MORSE_CODE[c]
+    else
+      '*'
+    end }.join('')
+}.join(' ')
 end
 
 def parse_bits(bits)
