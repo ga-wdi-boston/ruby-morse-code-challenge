@@ -33,8 +33,7 @@ def decode_morse(morse_code)
     end
     string += ' '
   end
-  # need to trim
-  return string
+  string.strip
 end
 
 def parse_bits(bits)
