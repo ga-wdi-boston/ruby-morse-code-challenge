@@ -16,7 +16,17 @@ MORSE_CODE = {
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
 
 def decode_morse(morse_code)
-  # Your code here
+  morse_array = morse_code.split(' ')
+  #changes code into array for easier comparison
+  code_array = MORSE_CODE.keys
+  morse_array.each{ |x|
+    if MORSE_CODE.has_key?(x)
+      puts x
+      # value = MORSE_CODE.fetch(x){ |key| x == key }
+      # puts value
+    end
+  }
+
 end
 
 def parse_bits(bits)
