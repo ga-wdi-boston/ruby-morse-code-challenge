@@ -15,10 +15,39 @@ MORSE_CODE = {
 }.freeze
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
 
+# take a string of dots/dits ('.') and dashes/dahs ('-')
+# converts it into a readable message.
 def decode_morse(morse_code)
-  # Your code here
+  include 'MORSE_CODE'
+
+  letter = morse_code
+  # Letters are separated by space
+  letter = letter + ' '
+  # words are separated by a group of three spaces.
+  word = letter + ' ' + ' ' + ' ' # like this is easier to see how many spaces are in between each word
+
+  sentence = word.each do |word|
+    sentence += word
+  end
+  # Remove any leading or trailing whitespace.
+  puts sentence.delete_at(sentence.length, -2)
+
 end
 
-def parse_bits(bits)
-  # Your code here
+wordList = morseCode.split(" ")
+
+wordList.each do |word|
+  word = word.downcase
+  word.split('').each do |letter|
+    a = ' ' + morse_dict[letter].to_s + ' '
+    word.gsub! letter, a
+  end
 end
+
+sentence = wordList.join(' ')
+
+return sentence.lstrip
+
+end
+
+puts decodeMorse("Example from description")
