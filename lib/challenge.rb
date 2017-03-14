@@ -33,21 +33,3 @@ def decode_morse(morse_code)
   puts sentence.delete_at(sentence.length, -2)
 
 end
-
-wordList = morseCode.split(" ")
-
-wordList.each do |word|
-  word = word.downcase
-  word.split('').each do |letter|
-    a = ' ' + morse_dict[letter].to_s + ' '
-    word.gsub! letter, a
-  end
-end
-
-sentence = wordList.join(' ')
-
-return sentence.lstrip
-
-end
-
-puts decodeMorse("Example from description")
