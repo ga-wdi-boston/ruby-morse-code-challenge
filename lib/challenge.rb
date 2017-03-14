@@ -16,7 +16,8 @@ MORSE_CODE = {
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
 
 def decode_morse(morse_code)
-  # Your code here
+  let decode = morse_code.strip().split(' ')
+  return ''.join([MORSE_CODE[code] for code in decode]).replace('  ', ' ')
 end
 
 def parse_bits(bits)
