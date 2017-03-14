@@ -16,13 +16,7 @@ MORSE_CODE = {
 ## DO NOT CHANGE ANYTHING ABOVE THIS LINE
 
 def decode_morse(morse_code)
-  words = morse_code.split('   ')
-  words.map! do |word|
-    letters = word.split(' ')
-    letters.map! { |letter| MORSE_CODE[letter] || '*' }
-    letters.join('')
-  end
-  words.join(' ')
+  morse_code.split('   ').map! { |word| word.split(' ').map! { |letter| MORSE_CODE[letter] || '*' }.join }.join(' ')
 end
 
 def parse_bits(bits)
